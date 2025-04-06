@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -66,9 +67,9 @@ const Navbar = () => {
             className="w-10 h-10 rounded-full bg-feedforward-500 flex items-center justify-center"
             whileHover={{ scale: 1.1 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            animate={{ 
-              boxShadow: ['0 0 0 rgba(74, 222, 128, 0)', '0 0 20px rgba(74, 222, 128, 0.5)', '0 0 0 rgba(74, 222, 128, 0)'],
-            }}
+            // Fix: Replace multi-keyframe boxShadow animation with a simpler CSS class
+            // that achieves a similar effect without using spring animations
+            className="w-10 h-10 rounded-full bg-feedforward-500 flex items-center justify-center pulse-shadow"
           >
             <span className="text-white font-bold text-lg">FF</span>
           </motion.div>
