@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -69,11 +68,6 @@ const Navbar = () => {
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
             animate={{ 
               boxShadow: ['0 0 0 rgba(74, 222, 128, 0)', '0 0 20px rgba(74, 222, 128, 0.5)', '0 0 0 rgba(74, 222, 128, 0)'],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "loop"
             }}
           >
             <span className="text-white font-bold text-lg">FF</span>
