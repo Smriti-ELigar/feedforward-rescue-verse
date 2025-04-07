@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Gift, Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   const [loaded, setLoaded] = useState(false);
@@ -120,37 +121,41 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.7 }}
               className="flex flex-wrap gap-4 pt-4"
             >
-              <Button 
-                size="lg" 
-                className="bg-feedforward-500 hover:bg-feedforward-600 text-white feed-button group relative overflow-hidden"
-                onClick={() => handleScrollToSection('donors')}
-              >
-                <Gift className="mr-2 h-4 w-4" />
-                <span>Join as FoodFlag Bearer</span>
-                <motion.span 
-                  className="absolute inset-0 bg-white/20"
-                  initial={{ scale: 0, x: "-50%", y: "-50%" }}
-                  whileHover={{ scale: 3 }}
-                  transition={{ duration: 0.5 }}
-                  style={{ originX: 0.5, originY: 0.5, borderRadius: "100%" }}
-                />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-feedforward-500 text-feedforward-600 hover:bg-feedforward-100 feed-button group relative overflow-hidden"
-                onClick={() => handleScrollToSection('recipients')}
-              >
-                <Search className="mr-2 h-4 w-4" />
-                <span>Join as FoodFlag Catcher</span>
-                <motion.span 
-                  className="absolute inset-0 bg-feedforward-100/50"
-                  initial={{ scale: 0, x: "-50%", y: "-50%" }}
-                  whileHover={{ scale: 3 }}
-                  transition={{ duration: 0.5 }}
-                  style={{ originX: 0.5, originY: 0.5, borderRadius: "100%" }}
-                />
-              </Button>
+              {/* Updated to use Link to navigate to the donor dashboard */}
+              <Link to="/dashboard/donor">
+                <Button 
+                  size="lg" 
+                  className="bg-feedforward-500 hover:bg-feedforward-600 text-white feed-button group relative overflow-hidden"
+                >
+                  <Gift className="mr-2 h-4 w-4" />
+                  <span>Join as FoodFlag Bearer</span>
+                  <motion.span 
+                    className="absolute inset-0 bg-white/20"
+                    initial={{ scale: 0, x: "-50%", y: "-50%" }}
+                    whileHover={{ scale: 3 }}
+                    transition={{ duration: 0.5 }}
+                    style={{ originX: 0.5, originY: 0.5, borderRadius: "100%" }}
+                  />
+                </Button>
+              </Link>
+              {/* Updated to use Link to navigate to the recipient dashboard */}
+              <Link to="/dashboard/recipient">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-feedforward-500 text-feedforward-600 hover:bg-feedforward-100 feed-button group relative overflow-hidden"
+                >
+                  <Search className="mr-2 h-4 w-4" />
+                  <span>Join as FoodFlag Catcher</span>
+                  <motion.span 
+                    className="absolute inset-0 bg-feedforward-100/50"
+                    initial={{ scale: 0, x: "-50%", y: "-50%" }}
+                    whileHover={{ scale: 3 }}
+                    transition={{ duration: 0.5 }}
+                    style={{ originX: 0.5, originY: 0.5, borderRadius: "100%" }}
+                  />
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
 

@@ -1,5 +1,6 @@
 
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
   return (
@@ -25,9 +26,11 @@ const CallToAction = () => {
                 Flag your surplus food and connect with those who need it while
                 earning rewards and reducing waste.
               </p>
-              <Button className="w-full bg-feedforward-500 hover:bg-feedforward-600 text-white">
-                Join as Donor
-              </Button>
+              <Link to="/dashboard/donor">
+                <Button className="w-full bg-feedforward-500 hover:bg-feedforward-600 text-white">
+                  Join as Donor
+                </Button>
+              </Link>
             </div>
             
             <div className="bg-background border rounded-xl p-6 shadow-md hover-lift">
@@ -39,9 +42,11 @@ const CallToAction = () => {
                 Find available food near you, get real-time notifications, and
                 help prevent food waste in your community.
               </p>
-              <Button className="w-full bg-feedcoin-500 hover:bg-feedcoin-600 text-white">
-                Join as Recipient
-              </Button>
+              <Link to="/dashboard/recipient">
+                <Button className="w-full bg-feedcoin-500 hover:bg-feedcoin-600 text-white">
+                  Join as Recipient
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

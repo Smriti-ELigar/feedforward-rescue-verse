@@ -65,6 +65,8 @@ const Navbar = () => {
           <motion.div
             className="w-10 h-10 rounded-full bg-feedforward-500 flex items-center justify-center pulse-shadow"
             whileHover={{ scale: 1.1 }}
+            // Fixed: Removed the duplicate transition attribute
+            // The transition is now specified only once
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <span className="text-white font-bold text-lg">FF</span>
