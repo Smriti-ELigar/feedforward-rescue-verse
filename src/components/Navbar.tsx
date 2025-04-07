@@ -53,27 +53,24 @@ const Navbar = () => {
   };
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/80 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'
+        }`}
     >
       <div className="container flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 z-20">
-          <motion.div 
-            className="w-10 h-10 rounded-full bg-feedforward-500 flex items-center justify-center"
+          <motion.div
+            className="w-10 h-10 rounded-full bg-feedforward-500 flex items-center justify-center pulse-shadow"
             whileHover={{ scale: 1.1 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            // Fix: Replace multi-keyframe boxShadow animation with a simpler CSS class
-            // that achieves a similar effect without using spring animations
-            className="w-10 h-10 rounded-full bg-feedforward-500 flex items-center justify-center pulse-shadow"
           >
             <span className="text-white font-bold text-lg">FF</span>
           </motion.div>
-          <motion.span 
+
+          <motion.span
             className="font-bold text-xl"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -93,18 +90,17 @@ const Navbar = () => {
               animate="visible"
               variants={variants}
             >
-              <Link 
-                to={item.path} 
-                className={`flex items-center gap-1.5 hover:text-feedforward-600 transition-colors ${
-                  location.pathname === item.path ? 'text-feedforward-600 font-medium' : ''
-                }`}
+              <Link
+                to={item.path}
+                className={`flex items-center gap-1.5 hover:text-feedforward-600 transition-colors ${location.pathname === item.path ? 'text-feedforward-600 font-medium' : ''
+                  }`}
               >
                 <item.icon className="h-4 w-4" />
                 <span>{item.name}</span>
               </Link>
             </motion.div>
           ))}
-          
+
           <motion.div
             custom={navItems.length}
             initial="hidden"
@@ -112,9 +108,9 @@ const Navbar = () => {
             variants={variants}
             className="ml-2 flex items-center gap-3"
           >
-            <Button 
-              variant="ghost" 
-              size="icon" 
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={toggleDarkMode}
               className="rounded-full"
             >
@@ -148,7 +144,7 @@ const Navbar = () => {
                 Sign In
               </Button>
             </Link>
-            
+
             <Link to="/auth">
               <Button className="bg-feedforward-500 hover:bg-feedforward-600 text-white">
                 Get Started
@@ -158,9 +154,9 @@ const Navbar = () => {
         </nav>
 
         <div className="md:hidden flex items-center gap-3 z-20">
-          <Button 
-            variant="ghost" 
-            size="icon" 
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={toggleDarkMode}
             className="rounded-full"
           >
@@ -168,9 +164,9 @@ const Navbar = () => {
               {isDarkMode ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
             </AnimatePresence>
           </Button>
-          
-          <Button 
-            variant="ghost" 
+
+          <Button
+            variant="ghost"
             size="icon"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="focus:outline-none"
@@ -203,7 +199,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.nav 
+          <motion.nav
             className="md:hidden fixed inset-0 pt-20 pb-6 px-4 bg-background/95 backdrop-blur-md shadow-md z-10"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -218,11 +214,10 @@ const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <Link 
-                    to={item.path} 
-                    className={`flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-feedforward-100 transition-colors ${
-                      location.pathname === item.path ? 'bg-feedforward-100 text-feedforward-700' : ''
-                    }`}
+                  <Link
+                    to={item.path}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-feedforward-100 transition-colors ${location.pathname === item.path ? 'bg-feedforward-100 text-feedforward-700' : ''
+                      }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <item.icon className="h-5 w-5" />
@@ -230,14 +225,14 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
-              
+
               <div className="mt-auto pt-4 space-y-3">
                 <Link to="/auth" className="block" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="outline" className="border-feedforward-500 text-feedforward-600 hover:bg-feedforward-100 w-full">
                     Sign In
                   </Button>
                 </Link>
-                
+
                 <Link to="/auth" className="block" onClick={() => setMobileMenuOpen(false)}>
                   <Button className="bg-feedforward-500 hover:bg-feedforward-600 text-white w-full">
                     Get Started
